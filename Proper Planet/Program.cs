@@ -40,7 +40,7 @@ namespace Proper_Planet
                 }
             }
 
-            planets2.Insert(1, new Planet()
+            planets2.Add(new Planet()
             {
                 PlaID = 9,
                 PlaName = "Pluto",
@@ -57,31 +57,43 @@ namespace Proper_Planet
                 PlaMoonCount = 5,
                 PlaRings = "No"
 
-            });     // Reinserts Pluto onto the list
+            });     // Reinserts Pluto onto the list 
 
             foreach (Planet aPlanet in planets2)
             {
                 Console.WriteLine(aPlanet);
             }
 
-            Console.WriteLine("There is " + planets2.Count + " elements on the list");      // Tells us, with the count function, how many elements is on the list
+            Console.WriteLine("There is " + planets2.Count + " elements on the list\n");      // Tells us, with the count function, how many elements is on the list
 
-            List<MeanPlanet> meanPlanets = new List<MeanPlanet>();
+            List<Planet> meanPlanets = new List<Planet>();                                // New list for planets with a temperature below 0
            
            
-           // foreach (Planet meanPlanet in planets2)                                       // Supposed to transfer from one list to another if value is true. 
-           // {                                                                             // have to return to this later
-           //     if (meanPlanet.PlaTemperature < 0)
-           //     {                                                                                           
-           //         meanPlanets.Add(planets2);
-           //         Console.WriteLine("Planets with a mean temperature below 0 = " + meanPlanet.PlaName);
-           //
-           //     }
-           // }
+            foreach (Planet meanPlanet in planets2)                                       // Loops through the list  
+            {                                                                             
+                if (meanPlanet.PlaTemperature < 0)                                        // Checks to see if the condition is true or not
+                {                                                                                           
+                    meanPlanets.Add(meanPlanet);                                          // if the condition is true, this adds the planet to another list
+                    
+                    Console.WriteLine("Planets with a mean temperature below 0 = " + meanPlanet.PlaName + ", the C° is = " + meanPlanet.PlaTemperature + "\n");  // displays the list of planets and their actual temperature to the user
            
+                }
+            }
+
+            List<Planet> mSizePlanets = new List<Planet>();
+
+            foreach (Planet mSizePla in planets2)
+            {
+                if (mSizePla.PlaDiameter > 10000 && mSizePla.PlaDiameter < 50000)
+                {
+                    mSizePlanets.Add(mSizePla);
+
+                    Console.WriteLine("Planets with a diameter above 10000 and below 50000 = " + mSizePla.PlaName + ", This planets diameter is = " + mSizePla.PlaDiameter + "\n");
+                }
+            }
 
             
-            //  planets2.Clear(); // Removes the whole list, by "clearing" the contents from the list
+             planets2.Clear(); // Removes the whole list, by "clearing" the contents from the list
    
         }
 
@@ -233,7 +245,4 @@ namespace Proper_Planet
         }
     }
 
-    internal class MeanPlanet
-    {
-    }
 }
