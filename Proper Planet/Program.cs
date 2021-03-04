@@ -28,15 +28,15 @@ namespace Proper_Planet
                 PlaTemperature = 464,
                 PlaMoonCount = 0,
                 PlaRings = "No"
-            });         // Inserts the planet venus into the list and places it on the 1st index(between "Merkur" and "Earth") on the list
+            });                    // Inserts the planet venus into the list and places it on the 1st index(between "Merkur" and "Earth") on the list
 
 
-            foreach (Planet planet in planets2)          // Foreach loop that will run through the list of planets
+            foreach (Planet planet in planets2)                     // Foreach loop that will run through the list of planets
             {
-                if (planet.PlaName == "Pluto")           // if statement that looks for the PlaName Pluto
+                if (planet.PlaName == "Pluto")                      // if statement that looks for the PlaName Pluto
                 {
-                    planets2.Remove(planet);             // if the "if" statement is true it will remove the found planet from the list
-                    break;                               // Needs the break function, otherwise it will continue trying to find more on the list 
+                    planets2.Remove(planet);                        // if the "if" statement is true it will remove the found planet from the list
+                    break;                                          // Needs the break function, otherwise it will continue trying to find more on the list 
                 }
             }
 
@@ -57,14 +57,14 @@ namespace Proper_Planet
                 PlaMoonCount = 5,
                 PlaRings = "No"
 
-            });     // Reinserts Pluto onto the list 
+            });                         // Reinserts Pluto onto the list with an add, because then inserted at the back
 
             foreach (Planet aPlanet in planets2)
             {
                 Console.WriteLine(aPlanet);
             }
 
-            Console.WriteLine("There is " + planets2.Count + " elements on the list\n");      // Tells us, with the count function, how many elements is on the list
+            Console.WriteLine("There is " + planets2.Count + " elements on the list\n");  // Tells us, with the count function, how many elements is on the list
 
             List<Planet> meanPlanets = new List<Planet>();                                // New list for planets with a temperature below 0
            
